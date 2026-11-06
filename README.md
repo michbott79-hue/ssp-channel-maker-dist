@@ -24,4 +24,7 @@ folder, program included (one static binary for Ubuntu 24.04, x86_64); each vers
 5. Facoltativo: metti la tua chiave TMDB in `config.toml` (`tmdb_key = "..."`, poi `chmod 600 config.toml`).
 6. Metti i film puliti in `in/`, il logo in `logos/` e segui `docs/QUICKSTART.md` (guida completa: `docs/GUIDE.md`).
 
+`example-spots/` has one sample spot (title "Example", 20 s countdown, no logo) for each built-in background: pick one with `--background NAME`.
+In `example-spots/` trovi uno spot di esempio per ogni sfondo incluso: scegline uno con `--background NOME`.
+
 Your TMDB key is personal: never share it.
