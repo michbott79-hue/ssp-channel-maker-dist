@@ -169,6 +169,44 @@ Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matri
 `--title-anim fade|pulse|slide` animates the title (fade in, breathe, or slide down into place); `--text-color` colours the other text (series line, plot, countdown). Example: `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-style neon --title-color cyan --title-effect glitch --title-anim slide --text-color gold -o out/br.mp4`.
 Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
 
+#### Pro glitch styles and title fonts
+
+`--glitch-style` (together with `--title-effect glitch`) chooses one of 12 pro looks. They apply to the title and year only: the countdown and every other line are never glitched. The look is identical at every render.
+
+- `vhs`: tracking loss.
+- `blocks`: digital blocks.
+- `punch`: RGB punch and zoom ghost.
+- `roll`: analog wave and vertical roll.
+- `burn`: film burn bloom.
+- `holo`: hologram dropout.
+- `mosh`: datamosh blocks.
+- `flash`: warm flash.
+- `cyber`: cyan tint and sweep.
+- `shatter`: row shatter.
+- `bloom`: pulsing bloom.
+- `signal`: vertical hold and dropouts.
+
+Knobs (they act on the pro styles, not on `classic`; a knob a style does not use is accepted and ignored; not given = the style's own value):
+
+| Option | Range | Used by |
+|---|---|---|
+| `--glitch-period S` | 0.5-30 seconds between bursts | all pro styles |
+| `--glitch-length S` | 0.1-5 seconds per burst | all pro styles |
+| `--glitch-split N` | 0-60 pixels, largest colour-channel split | all pro styles |
+| `--glitch-noise N` | 0-100 | all except cyber and bloom |
+| `--glitch-scanlines N` | 0-100 | all pro styles |
+| `--glitch-bloom N` | 0-100 glow | burn, flash, cyber, bloom |
+| `--glitch-color C` | name or `#RRGGBB` | burn, flash, holo, cyber |
+| `--glitch-seed N` | 0-9999, another random sequence | all pro styles |
+
+`--title-font` sets the font of the title and year (series line, plot and countdown stay on DejaVu): `dejavu` (default), `oswald` (condensed), `bebas` (tall caps), `anton` (heavy), `cinzel` (Roman capitals), `orbitron` (sci-fi), `montserrat` (modern), `rajdhani` (technical). The fonts are embedded in the program, there is nothing to install; they are under the SIL Open Font License (licences in `internal/spot/font/LICENSES.md`). Cinzel shows the German ß as SS and Orbitron's ß looks like a B.
+
+Examples:
+- `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-effect glitch --glitch-style vhs -o out/br.mp4`
+- `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch --glitch-style signal --glitch-period 5 -o out/matrix.mp4`
+- `ssp-channel-maker spot --title "Tron" --year 1982 --title-font orbitron --title-style neon --title-color cyan --title-effect glitch --glitch-style cyber --glitch-bloom 70 -o out/tron.mp4`
+- `ssp-channel-maker spot --title "Gladiator" --year 2000 --title-font cinzel --title-color gold --title-effect glitch --glitch-style burn --glitch-color orange -o out/gladiator.mp4`
+
 ### 7. Check, plan, build, verify
 
 ```bash
@@ -386,6 +424,44 @@ Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background mat
 `--title-style` cambia l'aspetto di titolo e anno: `flat` (semplice, predefinito), `outline` (contorno nero, si legge bene su sfondi movimentati), `extrude` (effetto 3D con spessore, come il titolo di una locandina), `glow` (alone morbido del colore del titolo) e `neon` (centro più chiaro, contorno sottile e alone forte). Gli stili si combinano con `--title-color` e `--title-effect glitch`.
 `--title-anim fade|pulse|slide` anima il titolo (comparsa graduale, respiro, o discesa al suo posto); `--text-color` colora il resto del testo (riga serie, trama, conto alla rovescia). Esempio: `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-style neon --title-color cyan --title-effect glitch --title-anim slide --text-color gold -o out/br.mp4`.
 Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
+
+#### Stili glitch professionali e font del titolo
+
+`--glitch-style` (insieme a `--title-effect glitch`) sceglie uno di 12 stili professionali. Valgono solo per titolo e anno: il conto alla rovescia e tutto il resto del testo non vengono mai alterati. Il risultato è identico a ogni render.
+
+- `vhs`: perdita di tracking.
+- `blocks`: blocchi digitali.
+- `punch`: pugno RGB con eco ingrandito.
+- `roll`: onda analogica e scorrimento verticale.
+- `burn`: bagliore da pellicola bruciata.
+- `holo`: ologramma che si interrompe.
+- `mosh`: blocchi da datamosh.
+- `flash`: lampo caldo.
+- `cyber`: tinta ciano e passaggio di luce.
+- `shatter`: righe che si spezzano.
+- `bloom`: bagliore che pulsa.
+- `signal`: perdita di sincronismo verticale e buchi nel segnale.
+
+Le manopole (agiscono sugli stili professionali, non su `classic`; una manopola che lo stile non usa viene accettata e ignorata; se non la indichi vale il valore dello stile):
+
+| Opzione | Intervallo | Usata da |
+|---|---|---|
+| `--glitch-period S` | 0,5-30 secondi tra una raffica e l'altra | tutti gli stili professionali |
+| `--glitch-length S` | 0,1-5 secondi per raffica | tutti gli stili professionali |
+| `--glitch-split N` | 0-60 pixel, massimo scostamento dei canali colore | tutti gli stili professionali |
+| `--glitch-noise N` | 0-100 | tutti tranne cyber e bloom |
+| `--glitch-scanlines N` | 0-100 | tutti gli stili professionali |
+| `--glitch-bloom N` | 0-100 di alone | burn, flash, cyber, bloom |
+| `--glitch-color C` | nome o `#RRGGBB` | burn, flash, holo, cyber |
+| `--glitch-seed N` | 0-9999, un'altra sequenza casuale | tutti gli stili professionali |
+
+`--title-font` cambia il carattere di titolo e anno (riga serie, trama e conto alla rovescia restano in DejaVu): `dejavu` (predefinito), `oswald` (stretto), `bebas` (maiuscole alte), `anton` (pesante), `cinzel` (maiuscole romane), `orbitron` (fantascienza), `montserrat` (moderno), `rajdhani` (tecnico). I caratteri sono incorporati nel programma, non c'è nulla da installare; sono sotto licenza SIL Open Font License (testi in `internal/spot/font/LICENSES.md`). Cinzel mostra la ß tedesca come SS e la ß di Orbitron assomiglia a una B.
+
+Esempi:
+- `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-effect glitch --glitch-style vhs -o out/br.mp4`
+- `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch --glitch-style signal --glitch-period 5 -o out/matrix.mp4`
+- `ssp-channel-maker spot --title "Tron" --year 1982 --title-font orbitron --title-style neon --title-color cyan --title-effect glitch --glitch-style cyber --glitch-bloom 70 -o out/tron.mp4`
+- `ssp-channel-maker spot --title "Gladiator" --year 2000 --title-font cinzel --title-color gold --title-effect glitch --glitch-style burn --glitch-color orange -o out/gladiator.mp4`
 
 ### 7. Check, plan, build, verify
 
