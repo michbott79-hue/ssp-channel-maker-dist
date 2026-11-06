@@ -1,0 +1,11 @@
+# ssp-channel-maker settings. This file stays in this folder, next to the program.
+#
+# tmdb_key: YOUR OWN personal TMDB API key (free: themoviedb.org, Settings, API).
+# It is optional: it only helps to find titles and years. Never give it to anyone
+# and take this line out before sending this file to somebody. Keep the file private:
+#   chmod 600 config.toml
+# `./ssp-channel-maker doctor` tells you whether it is set (it never shows the value).
+tmdb_key = ""
+
+# ffmpeg and ffprobe are found in the bin/ folder next to the program; add
+# ffmpeg = "/full/path/ffmpeg" and ffprobe = "/full/path/ffprobe" only if you keep them elsewhere.

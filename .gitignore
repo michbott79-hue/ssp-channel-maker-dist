@@ -1,0 +1,12 @@
+# the program and the user's files never live in this repository
+/ssp-channel-maker
+/docs/ssp-channel-maker.sha256
+/docs/ssp-channel-maker.sig
+/bin/*
+/in/*
+/out/*
+/logos/*
+!/bin/.keep
+!/in/.keep
+!/out/.keep
+!/logos/.keep
