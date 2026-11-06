@@ -39,4 +39,13 @@ Backgrounds (a still from each sample; the .mp4 files are in the same folder):
 - `rays` (beams of light): ![rays](example-spots/spot-rays.png)
 - `matrix` (falling green letters): ![matrix](example-spots/spot-matrix.png)
 
+Title looks (`look-*.mp4` in `example-spots/`) / Aspetto del titolo:
+
+- `--title-style outline`: ![outline](example-spots/look-outline.png)
+- `--title-style extrude` (3D): ![extrude](example-spots/look-extrude.png)
+- `--title-style glow`: ![glow](example-spots/look-glow.png)
+- `--title-style neon`: ![neon](example-spots/look-neon.png)
+- `--title-effect glitch --glitch-intensity 70`: ![glitch](example-spots/look-glitch.png)
+- `--title-anim fade`, `pulse`, `slide` (moving: open `look-fade.mp4`, `look-pulse.mp4`, `look-slide.mp4`): ![slide](example-spots/look-slide.png)
+
 Your TMDB key is personal: never share it.
