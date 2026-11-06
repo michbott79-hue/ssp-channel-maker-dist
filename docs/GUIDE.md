@@ -166,6 +166,7 @@ countdown; `--text-box-opacity N` (1-100 percent, default 45) sets how dark it i
 `--title-effect glitch` adds a red and a cyan copy of the title that jump for a short moment every 2.4 seconds; `--glitch-intensity N` (1-100, default 50) sets how far and how long.
 Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch -o out/matrix.mp4`.
 `--title-style` changes how the title and year look: `flat` (plain, default), `outline` (black contour, easy to read over a busy background), `extrude` (3D depth, like a poster title), `glow` (soft halo of the title colour) and `neon` (lighter core, thin contour and a strong halo). Styles combine with `--title-color` and `--title-effect glitch`.
+`--title-anim fade|pulse|slide` animates the title (fade in, breathe, or slide down into place); `--text-color` colours the other text (series line, plot, countdown). Example: `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-style neon --title-color cyan --title-effect glitch --title-anim slide --text-color gold -o out/br.mp4`.
 Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
@@ -381,6 +382,7 @@ precedenti disegnavano sempre un riquadro al 45 %). Prova: `ssp-channel-maker sp
 `--title-effect glitch` aggiunge una copia rossa e una ciano del titolo che scattano per un attimo ogni 2,4 secondi; `--glitch-intensity N` (1-100, predefinito 50) decide quanto spostamento e quanto dura.
 Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch -o out/matrix.mp4`.
 `--title-style` cambia l'aspetto di titolo e anno: `flat` (semplice, predefinito), `outline` (contorno nero, si legge bene su sfondi movimentati), `extrude` (effetto 3D con spessore, come il titolo di una locandina), `glow` (alone morbido del colore del titolo) e `neon` (centro più chiaro, contorno sottile e alone forte). Gli stili si combinano con `--title-color` e `--title-effect glitch`.
+`--title-anim fade|pulse|slide` anima il titolo (comparsa graduale, respiro, o discesa al suo posto); `--text-color` colora il resto del testo (riga serie, trama, conto alla rovescia). Esempio: `ssp-channel-maker spot --title "Blade Runner" --year 1982 --title-style neon --title-color cyan --title-effect glitch --title-anim slide --text-color gold -o out/br.mp4`.
 Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
