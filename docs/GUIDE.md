@@ -154,6 +154,12 @@ With TMDB on (`--tmdb`, or `--tmdb-id N` for the `spot` command) the spot shows 
 (default `title,year,genre,runtime,plot,cover`). Without TMDB data only title and year appear, centered as before; if the poster cannot be fetched the spot is
 made without it and the build prints a notice. Example: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix -o out/matrix.mp4`.
 
+#### Box behind the text
+
+Over a busy background (the `matrix` letter rain, for example) a long plot is hard to read. `--text-box on` puts a black box behind every text line and the
+countdown; `--text-box-opacity N` (1-100 percent, default 45) sets how dark it is. The box is **off by default** (since 0.1.7-dev, earlier versions always drew a
+45 % box). Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix --text-box on --text-box-opacity 60 -o out/matrix.mp4`.
+
 ### 7. Check, plan, build, verify
 
 ```bash
@@ -354,6 +360,12 @@ Con TMDB attivo (`--tmdb`, oppure `--tmdb-id N` per il comando `spot`) lo spot m
 "Generi  -  136 min" e la trama (`--plot-lines N`, predefinito 6, 0 la toglie; una trama lunga finisce con "..."). `--spot-info` sceglie le parti
 (predefinito `title,year,genre,runtime,plot,cover`). Senza dati TMDB compaiono solo titolo e anno, centrati come prima; se la locandina non si scarica lo spot
 viene fatto senza e la build stampa un avviso. Esempio: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix -o out/matrix.mp4`.
+
+#### Riquadro dietro il testo
+
+Su uno sfondo movimentato (per esempio le lettere di `matrix`) una trama lunga si legge male. `--text-box on` mette un riquadro nero dietro ogni riga di testo e dietro il
+conto alla rovescia; `--text-box-opacity N` (1-100 per cento, predefinito 45) decide quanto è scuro. Il riquadro è **spento di default** (dalla 0.1.7-dev; le versioni
+precedenti disegnavano sempre un riquadro al 45 %). Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix --text-box on --text-box-opacity 60 -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
 
