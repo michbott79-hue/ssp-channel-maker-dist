@@ -11,10 +11,10 @@ ssp-channel-maker      the program (static binary, Ubuntu 24.04, x86_64)
 install-ffmpeg-nvenc.sh  builds ffmpeg with NVIDIA NVENC on your PC (once), puts it in bin/
 bin/       ffmpeg and ffprobe (created by the script above)
 config.toml  already here, edit it: your own TMDB key (optional) and, only if needed, ffmpeg paths (`doctor --save`): `tmdb_key = "..."` (personal, never share this file)
-in/        put your cleaned films here (.mkv named like (Title)-(Year).mkv)
+in/        put your cleaned movies here (.mkv named like (Title)-(Year).mkv)
 out/       finished folders appear here, ready to upload by SFTP
 logos/     your channel logo (png)
-docs/      GUIDE.md (how to clean, name and encode your films), NAMING.md, QUICKSTART.md, ssp-channel-maker.sha256
+docs/      GUIDE.md (how to clean, name and encode your movies), NAMING.md, QUICKSTART.md, ssp-channel-maker.sha256
 ```
 
 1. **ffmpeg (once).** With an NVIDIA GPU and driver installed: `./install-ffmpeg-nvenc.sh --yes`
@@ -30,7 +30,7 @@ docs/      GUIDE.md (how to clean, name and encode your films), NAMING.md, QUICK
    ./ssp-channel-maker build  --name "My Cinema" --folder-name my_cinema --logo logos/logo.png
    ./ssp-channel-maker verify --folder-name my_cinema
    ```
-   (films are read from `in/`, the result goes to `out/`; other folders: `--input DIR`, `--output DIR`)
+   (movies are read from `in/`, the result goes to `out/`; other folders: `--input DIR`, `--output DIR`)
 5. **Upload** the folder `out/my_cinema` to your node by SFTP. The panel shows it as Ready.
 
 TMDB (optional, finds titles and years): the key is yours alone, put it in `config.toml` as `tmdb_key = "..."` and never give it to anyone. After editing it run `chmod 600 config.toml`. `./ssp-channel-maker doctor` shows whether it is set, never its value.
@@ -49,7 +49,7 @@ config.toml  già presente, modificalo: la tua chiave TMDB (facoltativa) e, solo
 in/        qui metti i film già puliti (.mkv chiamati (Titolo)-(Anno).mkv)
 out/       qui compaiono le cartelle finite, pronte da caricare con SFTP
 logos/     il logo del tuo canale (png)
-docs/      GUIDE.md (come pulire, nominare e codificare i film), NAMING.md, QUICKSTART.md, ssp-channel-maker.sha256
+docs/      GUIDE.md (come pulire, nominare e codificare i movie), NAMING.md, QUICKSTART.md, ssp-channel-maker.sha256
 ```
 
 1. **ffmpeg (una volta).** Con una scheda NVIDIA e il driver installato: `./install-ffmpeg-nvenc.sh --yes`

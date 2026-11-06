@@ -1,6 +1,6 @@
 # ssp-channel-maker (ready to use)
 
-Prepares films for the SMART STREAM PANEL feature "Create channel": uniform H.264/AAC encode on your NVIDIA GPU,
+Prepares movies for the SMART STREAM PANEL feature "Create channel": uniform H.264/AAC encode on your NVIDIA GPU,
 generated spots with your logo, and the `manifest.json` the panel needs. This repository IS the ready-made
 folder, program included (one static binary for Ubuntu 24.04, x86_64); each version is also a tarball in **Releases**.
 
@@ -12,7 +12,7 @@ folder, program included (one static binary for Ubuntu 24.04, x86_64); each vers
 3. Build ffmpeg with NVIDIA NVENC once: `./install-ffmpeg-nvenc.sh --yes` (puts ffmpeg and ffprobe in `bin/`).
 4. Check the machine: `./ssp-channel-maker doctor`.
 5. Optional: put your own TMDB key in `config.toml` (`tmdb_key = "..."`, then `chmod 600 config.toml`).
-6. Put your cleaned films in `in/`, your logo in `logos/`, and follow `docs/QUICKSTART.md` (full guide: `docs/GUIDE.md`).
+6. Put your cleaned movies in `in/`, your logo in `logos/`, and follow `docs/QUICKSTART.md` (full guide: `docs/GUIDE.md`).
 
 ## Italiano
 
@@ -35,7 +35,7 @@ Backgrounds (a still from each sample; the .mp4 files are in the same folder):
 - `black`: ![black](example-spots/spot-black.png)
 - `silk` (golden satin folds): ![silk](example-spots/spot-silk.png)
 - `dust` (warm motes rising): ![dust](example-spots/spot-dust.png)
-- `film` (grain, flicker, scratches; slower to render): ![film](example-spots/spot-film.png)
+- film (grain, flicker, scratches; slower to render): ![movie](example-spots/spot-movie.png)
 - `rays` (beams of light): ![rays](example-spots/spot-rays.png)
 
 Your TMDB key is personal: never share it.

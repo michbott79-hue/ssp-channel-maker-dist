@@ -1,4 +1,4 @@
-# Guide: how to prepare your films / Guida: come preparare i tuoi film
+# Guide: how to prepare your movies / Guida: come preparare i tuoi film
 
 English first, Italian below. Both parts say the same thing.
 Facts about `mkvmerge` were checked against its manual page (MKVToolNix); facts about `ssp-channel-maker` against its code (0.1.0-dev).
@@ -11,12 +11,12 @@ Facts about `mkvmerge` were checked against its manual page (MKVToolNix); facts 
 your rip (.mkv)  ->  clean copy (mkvmerge)  ->  right name  ->  check  ->  plan  ->  build  ->  verify  ->  upload (SFTP)
 ```
 
-1. **Clean** each film so the file holds one video track and one audio track (no extra languages, subtitles, chapters).
+1. **Clean** each movie so the file holds one video track and one audio track (no extra languages, subtitles, chapters).
 2. **Name** it in the scheme `(Title)-(Year)-...mkv` (full rules: `NAMING.md`).
 3. **Check** the names, **plan** (a dry run), **build** (the real encode), **verify**, then upload the finished folder to your node.
 
-The tool re-encodes every film to one uniform format (1080p H.264 + AAC, same profile for the whole folder) and adds a countdown spot
-before each film. You do not have to prepare the picture: only choose *what* goes in (which tracks) and *how* it is named.
+The tool re-encodes every movie to one uniform format (1080p H.264 + AAC, same profile for the whole folder) and adds a countdown spot
+before each movie. You do not have to prepare the picture: only choose *what* goes in (which tracks) and *how* it is named.
 Your sources are never changed: the tool only reads them.
 
 ### 2. Look at what you have
@@ -37,7 +37,7 @@ Track ID 3: subtitles (S_TEXT/UTF8)
 ```
 
 Note which ID is the video and which audio you want. IDs are track IDs, not "first, second, third": always read them from this list.
-The tool can also show what it sees: `ssp-channel-maker probe ~/films`.
+The tool can also show what it sees: `ssp-channel-maker probe ~/movies`.
 
 ### 3. Make a clean copy with mkvmerge
 
@@ -79,20 +79,20 @@ Format: `(Title)-(Year)-(Resolution)-(Language)-(genre)-(fps)-(tmdbid.ID).mkv`. 
 
 | You have | Name it |
 |---|---|
-| A film, nothing else known | `(Heat)-(1995).mkv` |
-| A film, everything known | `(Alien)-(1979)-(1080p)-(iTA)-(fantascienza)-(23)-(tmdbid.348).mkv` |
-| A film with a number in the title | `(007.06 Al servizio segreto di Sua Maestà)-(1969).mkv` |
+| A movie, nothing else known | `(Heat)-(1995).mkv` |
+| A movie, everything known | `(Alien)-(1979)-(1080p)-(iTA)-(fantascienza)-(23)-(tmdbid.348).mkv` |
+| A movie with a number in the title | `(007.06 Al servizio segreto di Sua Maestà)-(1969).mkv` |
 | A series episode | `(Show)-(S01E03)-(2011)-(1080p)-(iTA)-(drama)-(25)-(tmdbid.1399).mkv` |
 
 Rules in short: the title comes first; keep the language before the genre; leave out what you do not know; for a series put `(S01E03)` right
 after the title and use the id of the **show**. Resolution and fps are measured on the file, so if you write them wrongly the tool tells you.
-The `tmdbid` is the number in the address of the film on themoviedb.org; with it the tool can use the official title.
+The `tmdbid` is the number in the address of the movie on themoviedb.org; with it the tool can use the official title.
 
 You do not need to rename by hand. Let the tool propose names, look at them, then apply:
 
 ```bash
-ssp-channel-maker check ~/films --rename             # shows proposed names, changes nothing
-ssp-channel-maker check ~/films --rename --apply     # really renames (never overwrites)
+ssp-channel-maker check ~/movies --rename             # shows proposed names, changes nothing
+ssp-channel-maker check ~/movies --rename --apply     # really renames (never overwrites)
 ```
 
 With your TMDB key set (see "Your TMDB key" below), add `--tmdb` to find the missing ids; the tool only picks a match when exactly one result has the same title and year,
@@ -124,10 +124,10 @@ without `SxxEyy` is an error.
 ### 6. Choose the bit rate
 
 The video bit rate (`--video-kbps`) is **one value for the whole folder**: the panel accepts only files with the same profile, so you cannot give
-different rates to different films. Default 4000 kb/s; the tool warns outside the usual range 1500 - 20000 kb/s. Audio (`--audio-kbps`) defaults to
+different rates to different movies. Default 4000 kb/s; the tool warns outside the usual range 1500 - 20000 kb/s. Audio (`--audio-kbps`) defaults to
 192 kb/s, usual range 64 - 320.
 
-File size is easy to estimate: **size = (video + audio kb/s) x seconds / 8**. For a 2-hour film (7200 s):
+File size is easy to estimate: **size = (video + audio kb/s) x seconds / 8**. For a 2-hour movie (7200 s):
 
 | Video kb/s | Audio kb/s | About | Use it when |
 |---|---|---|---|
@@ -137,13 +137,13 @@ File size is easy to estimate: **size = (video + audio kb/s) x seconds / 8**. Fo
 | 8000 | 192 | 7.4 GB | very high quality; needs fast lines and disks |
 
 Remember: this is also the rate that every viewer of the channel downloads, and a live channel streams a whole folder over time. When in doubt
-keep 4000. A measured example (lab, one sample): a 2 h 16 film at 4000 kb/s gave 4.26 GB.
+keep 4000. A measured example (lab, one sample): a 2 h 16 movie at 4000 kb/s gave 4.26 GB.
 
 #### Spot background
 
 `--background NAME` picks the picture behind the spot text. List them with `ssp-channel-maker spot --list-backgrounds`; a ready sample of each
 is in the `example-spots/` folder of the public repo (stills in its README). The eight: `smoke1-3` (slow drifting cloud), `black`, `silk` (golden satin folds),
-`dust` (warm motes rising), `film` (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
+`dust` (warm motes rising), film (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
 Names of 0.1.2-dev and earlier that were removed (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colour>`, `grain`) still work: they render as `smoke1` and the tool warns.
 Try one first: `ssp-channel-maker spot --title "Test" --background silk -o out/test.mp4`.
 
@@ -152,20 +152,20 @@ Try one first: `ssp-channel-maker spot --title "Test" --background silk -o out/t
 ```bash
 ssp-channel-maker doctor                              # once: finds ffmpeg (in bin/), checks GPU and encoders
 ssp-channel-maker check                               # how every name is read: errors, warnings, notices
-ssp-channel-maker plan  --name "My Cinema"            # dry run: what will be done to each film
+ssp-channel-maker plan  --name "My Cinema"            # dry run: what will be done to each movie
 ssp-channel-maker build --name "My Cinema" --folder-name my_cinema --logo logos/logo.png
 ssp-channel-maker verify --folder-name my_cinema      # re-measures the result like the panel does
 ```
 
-Folders: the films are read from `in/` and the channel folder is written into `out/` (both next to the program). You can point the tool somewhere
-else with `--input ~/films` and `--output ~/out` (short forms `-i`, `-o`); an option you do not write keeps its default. `--folder-name` is the name of
-the channel folder inside the output (default: made from `--name`). The older form `check ~/films`, `build ~/films -o ~/out` still works.
+Folders: the movies are read from `in/` and the channel folder is written into `out/` (both next to the program). You can point the tool somewhere
+else with `--input ~/movies` and `--output ~/out` (short forms `-i`, `-o`); an option you do not write keeps its default. `--folder-name` is the name of
+the channel folder inside the output (default: made from `--name`). The older form `check ~/movies`, `build ~/movies -o ~/out` still works.
 
 What the tool checks for you:
 
 - **Names** (`check`): no title or a series without `SxxEyy` is an **error** and stops the build; no year or no tmdbid is a **warning**.
-- **File contents** (`plan`): a file without video is refused; films with different frame rates in one folder are reported (build one group with
-  `--fps`, or split the folder); the plan lists what will be done to each film (crop of black bars, deinterlace, HDR to SDR, scaling to 1080p with
+- **File contents** (`plan`): a file without video is refused; movies with different frame rates in one folder are reported (build one group with
+  `--fps`, or split the folder); the plan lists what will be done to each movie (crop of black bars, deinterlace, HDR to SDR, scaling to 1080p with
   black bars, audio down-mix).
 - **Bit rates** (`plan`): a warning when video or audio kb/s is outside the usual range.
 - **Result** (`verify`): the finished folder is measured again and judged like the panel judges it, so a folder that passes is expected to be shown as
@@ -179,7 +179,7 @@ Speed: about 7 times real time on an RTX 3080 (lab sample). Without a GPU use `-
 
 ### 8. Upload
 
-Upload the whole finished folder (films, spots, `manifest.json`) to the node with SFTP, into the node's Create channel inbox. The panel scans
+Upload the whole finished folder (movies, spots, `manifest.json`) to the node with SFTP, into the node's Create channel inbox. The panel scans
 it and shows **Ready** when everything matches. Then confirm the profile and activate the channel in the panel (see the Help topic
 "Create channel").
 
@@ -188,11 +188,11 @@ it and shows **Ready** when everything matches. Then confirm the profile and act
 | Message or symptom | What to do |
 |---|---|
 | `symbolic link refused` | The tool does not follow symbolic links. Use the real path of the folder, not a path that goes through a link. |
-| Error: series file without `SxxEyy` | Add `(S01E03)` after the title, or run without `--series` if it is a film folder. |
+| Error: series file without `SxxEyy` | Add `(S01E03)` after the title, or run without `--series` if it is a movie folder. |
 | Frame rates mixed | `plan` lists the groups. Build one with `--fps 25` (the others are left out), or put each frame rate in its own folder. |
 | The spot has no year | The name has no year. Add it: `(Heat)-(1995).mkv`. |
-| The film plays in the wrong audio language | Make a clean copy with only the track you want (section 3), or set `--audio-lang`. |
-| `check --tmdb` lists candidates and exits 3 | It was not sure which film is yours. Run it on a keyboard and pick the number, or write the `(tmdbid.ID)` yourself. |
+| The movie plays in the wrong audio language | Make a clean copy with only the track you want (section 3), or set `--audio-lang`. |
+| `check --tmdb` lists candidates and exits 3 | It was not sure which movie is yours. Run it on a keyboard and pick the number, or write the `(tmdbid.ID)` yourself. |
 | `doctor` exit 2 | ffmpeg/ffprobe, an encoder or a filter is missing; the message says which. |
 
 ---
