@@ -143,7 +143,7 @@ keep 4000. A measured example (lab, one sample): a 2 h 16 movie at 4000 kb/s gav
 
 `--background NAME` picks the picture behind the spot text. List them with `ssp-channel-maker spot --list-backgrounds`; a ready sample of each
 is in the `example-spots/` folder of the public repo (stills in its README). The eight: `smoke1-3` (slow drifting cloud), `black`, `silk` (golden satin folds),
-`dust` (warm motes rising), film (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
+`dust` (warm motes rising), `film` (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
 Names of 0.1.2-dev and earlier that were removed (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colour>`, `grain`) still work: they render as `smoke1` and the tool warns.
 Try one first: `ssp-channel-maker spot --title "Test" --background silk -o out/test.mp4`.
 
