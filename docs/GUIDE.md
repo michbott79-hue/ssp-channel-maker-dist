@@ -142,10 +142,17 @@ keep 4000. A measured example (lab, one sample): a 2 h 16 movie at 4000 kb/s gav
 #### Spot background
 
 `--background NAME` picks the picture behind the spot text. List them with `ssp-channel-maker spot --list-backgrounds`; a ready sample of each
-is in the `example-spots/` folder of the public repo (stills in its README). The eight: `smoke1-3` (slow drifting cloud), `black`, `silk` (golden satin folds),
-`dust` (warm motes rising), `film` (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
+is in the `example-spots/` folder of the public repo (stills in its README). The nine: `smoke1-3` (slow drifting cloud), `black`, `silk` (golden satin folds),
+`dust` (warm motes rising), `film` (grain, flicker, scratches; slower to render) `rays` (beams of light) and `matrix` (falling green letters). You can also give `#RRGGBB` or your own picture file.
 Names of 0.1.2-dev and earlier that were removed (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colour>`, `grain`) still work: they render as `smoke1` and the tool warns.
 Try one first: `ssp-channel-maker spot --title "Test" --background silk -o out/test.mp4`.
+
+#### Plot, genre, runtime and poster on the spot
+
+With TMDB on (`--tmdb`, or `--tmdb-id N` for the `spot` command) the spot shows the TMDB poster on the left and, on the right, title and year, one line
+"Genres  -  136 min" and the plot (`--plot-lines N`, default 6, 0 drops it; a longer plot ends with "..."). `--spot-info` chooses the parts
+(default `title,year,genre,runtime,plot,cover`). Without TMDB data only title and year appear, centered as before; if the poster cannot be fetched the spot is
+made without it and the build prints a notice. Example: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
 
@@ -336,10 +343,17 @@ un film di 2 h 16 a 4000 kb/s è venuto 4,26 GB.
 #### Sfondo dello spot
 
 `--background NOME` sceglie l'immagine dietro il testo dello spot. L'elenco: `ssp-channel-maker spot --list-backgrounds`; un esempio pronto di ognuno
-è nella cartella `example-spots/` del repo pubblico (anteprime nel suo README). Gli otto: `smoke1-3` (nuvola lenta in movimento), `black`, `silk` (pieghe di raso dorato),
-`dust` (granelli caldi che salgono), `film` (grana, sfarfallio, graffi; più lento da generare) e `rays` (raggi di luce). Puoi dare anche `#RRGGBB` o una tua immagine.
+è nella cartella `example-spots/` del repo pubblico (anteprime nel suo README). I nove: `smoke1-3` (nuvola lenta in movimento), `black`, `silk` (pieghe di raso dorato),
+`dust` (granelli caldi che salgono), `film` (grana, sfarfallio, graffi; più lento da generare), `rays` (raggi di luce) e `matrix` (lettere verdi che scendono). Puoi dare anche `#RRGGBB` o una tua immagine.
 I nomi tolti dopo la 0.1.2-dev (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colore>`, `grain`) funzionano ancora: diventano `smoke1` e il programma avvisa.
 Provane uno prima: `ssp-channel-maker spot --title "Prova" --background silk -o out/prova.mp4`.
+
+#### Trama, generi, durata e locandina sullo spot
+
+Con TMDB attivo (`--tmdb`, oppure `--tmdb-id N` per il comando `spot`) lo spot mostra a sinistra la locandina TMDB e a destra titolo e anno, una riga
+"Generi  -  136 min" e la trama (`--plot-lines N`, predefinito 6, 0 la toglie; una trama lunga finisce con "..."). `--spot-info` sceglie le parti
+(predefinito `title,year,genre,runtime,plot,cover`). Senza dati TMDB compaiono solo titolo e anno, centrati come prima; se la locandina non si scarica lo spot
+viene fatto senza e la build stampa un avviso. Esempio: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
 

@@ -37,5 +37,6 @@ Backgrounds (a still from each sample; the .mp4 files are in the same folder):
 - `dust` (warm motes rising): ![dust](example-spots/spot-dust.png)
 - `film` (grain, flicker, scratches; slower to render): ![film](example-spots/spot-film.png)
 - `rays` (beams of light): ![rays](example-spots/spot-rays.png)
+- `matrix` (falling green letters): ![matrix](example-spots/spot-matrix.png)
 
 Your TMDB key is personal: never share it.
