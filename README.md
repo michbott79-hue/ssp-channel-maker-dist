@@ -27,4 +27,14 @@ folder, program included (one static binary for Ubuntu 24.04, x86_64); each vers
 `example-spots/` has one sample spot (title "Example", 20 s countdown, no logo) for each built-in background: pick one with `--background NAME`.
 In `example-spots/` trovi uno spot di esempio per ogni sfondo incluso: scegline uno con `--background NOME`.
 
+Backgrounds (a still from each sample; the .mp4 files are in the same folder):
+
+- `smoke1`: ![smoke1](example-spots/spot-smoke1.png)
+- `smoke2`: ![smoke2](example-spots/spot-smoke2.png)
+- `smoke3`: ![smoke3](example-spots/spot-smoke3.png)
+- `gradient-blue`: ![gradient-blue](example-spots/spot-gradient-blue.png)
+- `gradient-red`: ![gradient-red](example-spots/spot-gradient-red.png)
+- `grain`: ![grain](example-spots/spot-grain.png)
+- `black`: ![black](example-spots/spot-black.png)
+
 Your TMDB key is personal: never share it.
