@@ -179,6 +179,8 @@ ssp-channel-maker build --name "My Cinema" --folder-name my_cinema --logo logos/
 ssp-channel-maker verify --folder-name my_cinema      # re-measures the result like the panel does
 ```
 
+The logo must be a PNG or JPEG file: an SVG is refused with a clear message (convert it to PNG first).
+
 Folders: the movies are read from `in/` and the channel folder is written into `out/` (both next to the program). You can point the tool somewhere
 else with `--input ~/movies` and `--output ~/out` (short forms `-i`, `-o`); an option you do not write keeps its default. `--folder-name` is the name of
 the channel folder inside the output (default: made from `--name`). The older form `check ~/movies`, `build ~/movies -o ~/out` still works.
@@ -394,6 +396,8 @@ ssp-channel-maker plan  --name "Il mio cinema"        # prova a vuoto: cosa si f
 ssp-channel-maker build --name "Il mio cinema" --folder-name il_mio_cinema --logo logos/logo.png
 ssp-channel-maker verify --folder-name il_mio_cinema  # rimisura il risultato come fa il pannello
 ```
+
+Il logo deve essere un file PNG o JPEG: un SVG viene rifiutato con un messaggio chiaro (convertilo prima in PNG).
 
 Cartelle: i film si leggono da `in/` e la cartella del canale si scrive in `out/` (entrambe accanto al programma). Per usare altre cartelle:
 `--input ~/films` e `--output ~/out` (forme corte `-i`, `-o`); un'opzione che non scrivi tiene il suo valore predefinito. `--folder-name` è il nome della
