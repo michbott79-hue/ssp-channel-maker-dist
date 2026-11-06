@@ -142,10 +142,10 @@ keep 4000. A measured example (lab, one sample): a 2 h 16 film at 4000 kb/s gave
 #### Spot background
 
 `--background NAME` picks the picture behind the spot text. List them with `ssp-channel-maker spot --list-backgrounds`; a ready sample of each
-is in the `example-spots/` folder of the public repo (stills in its README). Families: `smoke1-3` and `smoke-gold|violet|teal|crimson|emerald|ice|amber|rose`
-(slow drifting cloud), `gradient-blue|red|gold|violet|teal|emerald|sunset|midnight|slate|wine` (two-colour diagonal), `velvet-red|blue|green|plum`
-(dark colour lit from the centre), `bokeh-gold|blue|rose|emerald` (soft drifting lights), `grain`, `black`. You can also give `#RRGGBB` or your own picture file.
-Try one first: `ssp-channel-maker spot --title "Test" --background velvet-blue -o out/test.mp4`.
+is in the `example-spots/` folder of the public repo (stills in its README). The eight: `smoke1-3` (slow drifting cloud), `black`, `silk` (golden satin folds),
+`dust` (warm motes rising), `film` (grain, flicker, scratches; slower to render) and `rays` (beams of light). You can also give `#RRGGBB` or your own picture file.
+Names of 0.1.2-dev and earlier that were removed (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colour>`, `grain`) still work: they render as `smoke1` and the tool warns.
+Try one first: `ssp-channel-maker spot --title "Test" --background silk -o out/test.mp4`.
 
 ### 7. Check, plan, build, verify
 
@@ -336,10 +336,10 @@ un film di 2 h 16 a 4000 kb/s è venuto 4,26 GB.
 #### Sfondo dello spot
 
 `--background NOME` sceglie l'immagine dietro il testo dello spot. L'elenco: `ssp-channel-maker spot --list-backgrounds`; un esempio pronto di ognuno
-è nella cartella `example-spots/` del repo pubblico (anteprime nel suo README). Famiglie: `smoke1-3` e `smoke-gold|violet|teal|crimson|emerald|ice|amber|rose`
-(nuvola lenta in movimento), `gradient-blue|red|gold|violet|teal|emerald|sunset|midnight|slate|wine` (diagonale a due colori), `velvet-red|blue|green|plum`
-(colore scuro illuminato al centro), `bokeh-gold|blue|rose|emerald` (luci morbide che scorrono piano), `grain`, `black`. Puoi dare anche `#RRGGBB` o una tua immagine.
-Provane uno prima: `ssp-channel-maker spot --title "Prova" --background velvet-blue -o out/prova.mp4`.
+è nella cartella `example-spots/` del repo pubblico (anteprime nel suo README). Gli otto: `smoke1-3` (nuvola lenta in movimento), `black`, `silk` (pieghe di raso dorato),
+`dust` (granelli caldi che salgono), `film` (grana, sfarfallio, graffi; più lento da generare) e `rays` (raggi di luce). Puoi dare anche `#RRGGBB` o una tua immagine.
+I nomi tolti dopo la 0.1.2-dev (`gradient-*`, `velvet-*`, `bokeh-*`, `smoke-<colore>`, `grain`) funzionano ancora: diventano `smoke1` e il programma avvisa.
+Provane uno prima: `ssp-channel-maker spot --title "Prova" --background silk -o out/prova.mp4`.
 
 ### 7. Check, plan, build, verify
 
