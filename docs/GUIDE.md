@@ -160,6 +160,14 @@ Over a busy background (the `matrix` letter rain, for example) a long plot is ha
 countdown; `--text-box-opacity N` (1-100 percent, default 45) sets how dark it is. The box is **off by default** (since 0.1.7-dev, earlier versions always drew a
 45 % box). Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix --text-box on --text-box-opacity 60 -o out/matrix.mp4`.
 
+### Title colour and glitch effect
+
+`--title-color` sets the colour of the title and year (a name: white, yellow, gold, orange, red, green, matrix, cyan, blue, purple, pink, silver; or `#RRGGBB`). Other lines stay white.
+`--title-effect glitch` adds a red and a cyan copy of the title that jump for a short moment every 2.4 seconds; `--glitch-intensity N` (1-100, default 50) sets how far and how long.
+Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch -o out/matrix.mp4`.
+`--title-style` changes how the title and year look: `flat` (plain, default), `outline` (black contour, easy to read over a busy background), `extrude` (3D depth, like a poster title), `glow` (soft halo of the title colour) and `neon` (lighter core, thin contour and a strong halo). Styles combine with `--title-color` and `--title-effect glitch`.
+Try: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
+
 ### 7. Check, plan, build, verify
 
 ```bash
@@ -366,6 +374,14 @@ viene fatto senza e la build stampa un avviso. Esempio: `ssp-channel-maker spot 
 Su uno sfondo movimentato (per esempio le lettere di `matrix`) una trama lunga si legge male. `--text-box on` mette un riquadro nero dietro ogni riga di testo e dietro il
 conto alla rovescia; `--text-box-opacity N` (1-100 per cento, predefinito 45) decide quanto è scuro. Il riquadro è **spento di default** (dalla 0.1.7-dev; le versioni
 precedenti disegnavano sempre un riquadro al 45 %). Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --tmdb --background matrix --text-box on --text-box-opacity 60 -o out/matrix.mp4`.
+
+### Colore del titolo ed effetto glitch
+
+`--title-color` sceglie il colore di titolo e anno (un nome: white, yellow, gold, orange, red, green, matrix, cyan, blue, purple, pink, silver; oppure `#RRGGBB`). Le altre righe restano bianche.
+`--title-effect glitch` aggiunge una copia rossa e una ciano del titolo che scattano per un attimo ogni 2,4 secondi; `--glitch-intensity N` (1-100, predefinito 50) decide quanto spostamento e quanto dura.
+Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-effect glitch -o out/matrix.mp4`.
+`--title-style` cambia l'aspetto di titolo e anno: `flat` (semplice, predefinito), `outline` (contorno nero, si legge bene su sfondi movimentati), `extrude` (effetto 3D con spessore, come il titolo di una locandina), `glow` (alone morbido del colore del titolo) e `neon` (centro più chiaro, contorno sottile e alone forte). Gli stili si combinano con `--title-color` e `--title-effect glitch`.
+Prova: `ssp-channel-maker spot --title "The Matrix" --year 1999 --background matrix --title-color matrix --title-style neon -o out/matrix.mp4`.
 
 ### 7. Check, plan, build, verify
 
