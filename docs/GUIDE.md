@@ -139,6 +139,14 @@ File size is easy to estimate: **size = (video + audio kb/s) x seconds / 8**. Fo
 Remember: this is also the rate that every viewer of the channel downloads, and a live channel streams a whole folder over time. When in doubt
 keep 4000. A measured example (lab, one sample): a 2 h 16 film at 4000 kb/s gave 4.26 GB.
 
+#### Spot background
+
+`--background NAME` picks the picture behind the spot text. List them with `ssp-channel-maker spot --list-backgrounds`; a ready sample of each
+is in the `example-spots/` folder of the public repo (stills in its README). Families: `smoke1-3` and `smoke-gold|violet|teal|crimson|emerald|ice|amber|rose`
+(slow drifting cloud), `gradient-blue|red|gold|violet|teal|emerald|sunset|midnight|slate|wine` (two-colour diagonal), `velvet-red|blue|green|plum`
+(dark colour lit from the centre), `bokeh-gold|blue|rose|emerald` (soft drifting lights), `grain`, `black`. You can also give `#RRGGBB` or your own picture file.
+Try one first: `ssp-channel-maker spot --title "Test" --background velvet-blue -o out/test.mp4`.
+
 ### 7. Check, plan, build, verify
 
 ```bash
@@ -324,6 +332,14 @@ La dimensione si stima facilmente: **dimensione = (video + audio kb/s) x secondi
 
 Ricorda: è anche il bitrate che scarica ogni spettatore del canale. Nel dubbio resta a 4000. Un esempio misurato (laboratorio, un solo campione):
 un film di 2 h 16 a 4000 kb/s è venuto 4,26 GB.
+
+#### Sfondo dello spot
+
+`--background NOME` sceglie l'immagine dietro il testo dello spot. L'elenco: `ssp-channel-maker spot --list-backgrounds`; un esempio pronto di ognuno
+è nella cartella `example-spots/` del repo pubblico (anteprime nel suo README). Famiglie: `smoke1-3` e `smoke-gold|violet|teal|crimson|emerald|ice|amber|rose`
+(nuvola lenta in movimento), `gradient-blue|red|gold|violet|teal|emerald|sunset|midnight|slate|wine` (diagonale a due colori), `velvet-red|blue|green|plum`
+(colore scuro illuminato al centro), `bokeh-gold|blue|rose|emerald` (luci morbide che scorrono piano), `grain`, `black`. Puoi dare anche `#RRGGBB` o una tua immagine.
+Provane uno prima: `ssp-channel-maker spot --title "Prova" --background velvet-blue -o out/prova.mp4`.
 
 ### 7. Check, plan, build, verify
 
