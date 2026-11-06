@@ -1,7 +1,4 @@
-# the program and the user's files never live in this repository
-/ssp-channel-maker
-/docs/ssp-channel-maker.sha256
-/docs/ssp-channel-maker.sig
+# the user's own files never live in this repository
 /bin/*
 /in/*
 /out/*
